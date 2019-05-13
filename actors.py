@@ -70,7 +70,8 @@ def index():
         except CellNotFound:
 
             form.name.data = "We can't find your record here. " \
-                             "Please send your ID to BIGOAMERICA@BIGO.TV for more information"
+                             "Please send your ID to BIGOAMERICA@BIGO.TV, " \
+                             "we will get you back within 3 business days."
 
         '''
         if name in names:
