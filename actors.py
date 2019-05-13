@@ -2,6 +2,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
+from gspread import CellNotFound
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 from data import ACTORS
@@ -61,9 +62,15 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
 
-        x = sheet.find(name)
+        try:
+            x = sheet.find(name)
 
-        form.name.data = sheet.cell(x.row,11).value
+            form.name.data = sheet.cell(x.row,11).value
+
+        except CellNotFound:
+
+            form.name.data = "We can't find your record here. " \
+                             "Please send your ID to BIGOAMERICA@BIGO.TV for more information"
 
         '''
         if name in names:
