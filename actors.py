@@ -23,7 +23,7 @@ app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 # "NameForm" can change; "(FlaskForm)" cannot
 # see the route for "/" and "index.html" to see how this is used
 class NameForm(FlaskForm):
-    name = StringField('What is your Bigo ID?', validators=[Required()])
+    name = StringField('What is your Bigo UID?', validators=[Required()])
     submit = SubmitField('Submit')
 
 # define functions to be used by the routes (just one here)
