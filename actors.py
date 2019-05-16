@@ -63,18 +63,23 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
 
-        try:
-            x = sheet.find(name)
+        if len(name) == 10:
 
-            form.name.data = name
+            try:
+                x = sheet.find(name)
 
-            form.response.data = sheet.cell(x.row,11).value
+                form.name.data = name
 
-        except CellNotFound:
+                form.response.data = sheet.cell(x.row,11).value
 
-            form.response.data = "We can't find your record here. " \
+            except CellNotFound:
+
+                form.response.data = "We can't find your record here. " \
                              "Please send your ID to BIGOAMERICA@BIGO.TV, " \
                              "we will get you back within 3 business days."
+        else:
+
+            form.response.data = "Please enter a valid VIP Token"
 
         '''
         if name in names:
@@ -84,6 +89,7 @@ def index():
         else:
             message = "That actor is not in our database."
         '''
+
     # notice that we don't need to pass name or names to the template
     return render_template('index.html', form=form, message=message)
 
