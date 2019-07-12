@@ -73,7 +73,7 @@ def index():
 
                 form.response_1.data = sheet.cell(x.row, 11).value
 
-                form.response_2.data = 1
+                form.response_2.data = sheet.cell(x.row, 10).value
 
             except CellNotFound:
 
