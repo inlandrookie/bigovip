@@ -25,7 +25,8 @@ app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 # see the route for "/" and "index.html" to see how this is used
 class NameForm(FlaskForm):
     name = StringField('What is your Bigo VIP Token?', validators=[Required()])
-    response = StringField('VIP Points')
+    response_1 = StringField('VIP Points')
+    response_2 = StringField('VIP POINTS EXPIRED BY THE END OF THE MONTH')
     submit = SubmitField('Submit')
 
 # define functions to be used by the routes (just one here)
@@ -70,16 +71,18 @@ def index():
 
                 form.name.data = name
 
-                form.response.data = sheet.cell(x.row,11).value
+                form.response_1.data = sheet.cell(x.row, 11).value
+
+                form.response_2.data = 1
 
             except CellNotFound:
 
-                form.response.data = "We can't find your record here. " \
+                form.response_1.data = "We can't find your record here. " \
                              "Please send your ID to BIGOAMERICA@BIGO.TV, " \
                              "we will get you back within 3 business days."
         else:
 
-            form.response.data = "Please enter a valid VIP Token"
+            form.response_1.data = "Please enter a valid VIP Token"
 
         '''
         if name in names:
