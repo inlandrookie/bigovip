@@ -80,9 +80,12 @@ def index():
                 form.response_1.data = "We can't find your record here. " \
                              "Please send your ID to BIGOAMERICA@BIGO.TV, " \
                              "we will get you back within 3 business days."
+
+                form.response_2.data = ""
         else:
 
             form.response_1.data = "Please enter a valid VIP Token"
+            form.response_2.data = ""
 
         '''
         if name in names:
