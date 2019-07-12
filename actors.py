@@ -25,7 +25,7 @@ app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 # see the route for "/" and "index.html" to see how this is used
 class NameForm(FlaskForm):
     name = StringField('What is your Bigo VIP Token?', validators=[Required()])
-    response_1 = StringField('VIP Points')
+    response_1 = StringField('TOTAL VIP POINTS')
     response_2 = StringField('VIP POINTS EXPIRED BY THE END OF THE MONTH')
     submit = SubmitField('Submit')
 
